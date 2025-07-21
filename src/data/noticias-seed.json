@@ -1,0 +1,54 @@
+{
+  "noticias": [
+    {
+      "titulo": "Apertura de Inscripciones para el Período 2024-2025",
+      "resumen": "El Instituto Universitario de Tecnología Dr. Cristóbal Mendoza anuncia el inicio del proceso de inscripciones para el nuevo período académico.",
+      "contenido": "<p>Nos complace anunciar la apertura del proceso de inscripciones para el período académico 2024-2025. Este proceso estará disponible tanto para estudiantes de nuevo ingreso como para estudiantes regulares.</p><h3>Fechas Importantes</h3><ul><li>Estudiantes Nuevos: 1-15 de julio 2024</li><li>Estudiantes Regulares: 16-30 de julio 2024</li></ul><p>Los aspirantes deberán presentar la siguiente documentación:</p><ul><li>Título de Bachiller (original y copia)</li><li>Notas certificadas</li><li>Cédula de identidad</li><li>4 fotos tipo carnet</li></ul>",
+      "imagen": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200",
+      "fecha": "2024-03-15T10:00:00.000Z",
+      "autor": "Departamento de Admisiones",
+      "categoria": "Admisiones",
+      "estado": "publicado"
+    },
+    {
+      "titulo": "Convenio con Empresas Tecnológicas Locales",
+      "resumen": "El IUTCM establece alianzas estratégicas con empresas tecnológicas para ofrecer pasantías a estudiantes de Informática.",
+      "contenido": "<p>El Instituto Universitario de Tecnología Dr. Cristóbal Mendoza ha firmado importantes convenios con empresas tecnológicas de la región.</p><h3>Beneficios del Convenio</h3><ul><li>Pasantías remuneradas</li><li>Mentorías profesionales</li><li>Posibilidades de empleo</li></ul><p>Las empresas participantes incluyen líderes en desarrollo de software, consultoría tecnológica y servicios digitales.</p><h3>Requisitos para Aplicar</h3><p>Los estudiantes interesados deben cumplir con los siguientes requisitos:</p><ul><li>Promedio mínimo de 15 puntos</li><li>Cursar el último año de la carrera</li><li>Dominio del inglés técnico</li></ul>",
+      "imagen": "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200",
+      "fecha": "2024-03-10T14:30:00.000Z",
+      "autor": "Coordinación de Pasantías",
+      "categoria": "Convenios",
+      "estado": "publicado"
+    },
+    {
+      "titulo": "Éxito en la Feria de Proyectos Tecnológicos",
+      "resumen": "Estudiantes del IUTCM destacan en la Feria Nacional de Proyectos Tecnológicos con innovadoras soluciones.",
+      "contenido": "<p>Los estudiantes del IUTCM han logrado un destacado desempeño en la Feria Nacional de Proyectos Tecnológicos 2024.</p><h3>Proyectos Premiados</h3><ul><li>Sistema de Riego Inteligente - Primer Lugar</li><li>App de Asistencia Médica - Segundo Lugar</li><li>Plataforma Educativa AR - Mención Honorífica</li></ul><p>Estos logros demuestran el alto nivel de preparación y creatividad de nuestros estudiantes.</p><h3>Impacto en la Comunidad</h3><p>Los proyectos desarrollados tienen aplicaciones prácticas que beneficiarán a diversos sectores:</p><ul><li>Agricultura sostenible</li><li>Salud pública</li><li>Educación innovadora</li></ul>",
+      "imagen": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200",
+      "fecha": "2024-03-05T09:15:00.000Z",
+      "autor": "Departamento de Investigación",
+      "categoria": "Logros",
+      "estado": "publicado"
+    },
+    {
+      "titulo": "Nuevo Laboratorio de Inteligencia Artificial",
+      "resumen": "El IUTCM inaugura un moderno laboratorio equipado con tecnología de punta para el estudio de la Inteligencia Artificial.",
+      "contenido": "<p>Con una inversión significativa en infraestructura tecnológica, el IUTCM inaugura su nuevo Laboratorio de Inteligencia Artificial.</p><h3>Equipamiento</h3><ul><li>Workstations de alto rendimiento</li><li>Servidores GPU dedicados</li><li>Equipos de realidad virtual</li><li>Robots educativos</li></ul><p>Este laboratorio permitirá a los estudiantes desarrollar proyectos en áreas como:</p><ul><li>Machine Learning</li><li>Procesamiento de Lenguaje Natural</li><li>Visión por Computadora</li><li>Robótica Avanzada</li></ul><h3>Cursos Disponibles</h3><p>Se ofrecerán cursos especializados en:</p><ul><li>Deep Learning</li><li>Redes Neuronales</li><li>Algoritmos de IA</li></ul>",
+      "imagen": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1200",
+      "fecha": "2024-03-01T11:00:00.000Z",
+      "autor": "Coordinación de Informática",
+      "categoria": "Infraestructura",
+      "estado": "publicado"
+    },
+    {
+      "titulo": "Jornada de Actualización Docente",
+      "resumen": "Profesores del IUTCM participan en jornada de actualización sobre metodologías de enseñanza innovadoras.",
+      "contenido": "<p>Durante una semana intensiva, nuestros docentes participaron en talleres y conferencias sobre las últimas tendencias en educación superior.</p><h3>Temas Abordados</h3><ul><li>Educación híbrida</li><li>Herramientas digitales educativas</li><li>Evaluación por competencias</li><li>Metodologías ágiles</li></ul><p>Los profesores adquirieron nuevas competencias en:</p><ul><li>Uso de plataformas educativas</li><li>Creación de contenido digital</li><li>Estrategias de evaluación online</li></ul><h3>Resultados Esperados</h3><p>Esta actualización permitirá:</p><ul><li>Mejorar la calidad educativa</li><li>Implementar nuevas metodologías</li><li>Aumentar el engagement estudiantil</li></ul>",
+      "imagen": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1200",
+      "fecha": "2024-02-25T15:45:00.000Z",
+      "autor": "Departamento Académico",
+      "categoria": "Capacitación",
+      "estado": "publicado"
+    }
+  ]
+} 
