@@ -83,28 +83,28 @@ export const TestimonialsSection = () => {
                 <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-secondary flex-shrink-0">
                   {testimonials[currentIndex].id === 1 && (
                     <img 
-                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                      src="https://i.imgur.com/VBVgyz9.png" 
                       alt="Carlos Rodríguez" 
                       className="w-full h-full object-cover"
                     />
                   )}
                   {testimonials[currentIndex].id === 2 && (
                     <img 
-                      src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" 
+                      src="https://i.imgur.com/yisBxrH.png" 
                       alt="María González" 
                       className="w-full h-full object-cover"
                     />
                   )}
                   {testimonials[currentIndex].id === 3 && (
                     <img 
-                      src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                      src="https://i.imgur.com/3niUgim.png" 
                       alt="José Martínez" 
                       className="w-full h-full object-cover"
                     />
                   )}
                   {testimonials[currentIndex].id === 4 && (
                     <img 
-                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                      src="https://i.imgur.com/0osjN9N.png" 
                       alt="Ana Pérez" 
                       className="w-full h-full object-cover"
                     />

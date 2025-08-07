@@ -11,14 +11,14 @@ export const CertificadosHero = () => {
       <div className="absolute inset-0 z-0">
         <div className="w-full h-full bg-gray-800">
           <img 
-            src="hhttps://i.imgur.com/2gcTWD3.jpeg" 
+            src="https://i.imgur.com/g1V6DUl.jpeg" 
             alt="Certificados Digitales IUTCM" 
             className="w-full h-full object-cover opacity-90"
             loading="eager"
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               target.onerror = null;
-              target.src = 'https://i.imgur.com/2gcTWD3.jpeg';
+              target.src = 'https://i.imgur.com/g1V6DUl.jpeg';
             }}
           />
         </div>
@@ -47,7 +47,7 @@ export const CertificadosHero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.1, duration: 0.3 }}
           >
-            Impulsa tu éxito con certificados virtuales seguros y portables, avalados por Blockchain y reconocidos a nivel global
+            Impulsa tu éxito con certificados virtuales seguros y portables, avalados por cadena de bloques y reconocidos a nivel global
           </motion.p>
           
           <motion.p 

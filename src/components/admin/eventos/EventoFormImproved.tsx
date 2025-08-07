@@ -17,7 +17,6 @@ interface EventoFormProps {
     estado: string;
     capacidad: number;
     inscripcionRequerida: boolean;
-    enlaceInscripcion?: string;
   };
   onSubmit: (data: any) => void;
 }
@@ -30,38 +29,19 @@ export default function EventoForm({ evento, onSubmit }: EventoFormProps) {
     imagen: '',
     fechaInicio: '',
     fechaFin: '',
-    horaInicio: '08:00',
-    horaFin: '18:00',
     lugar: '',
     organizador: '',
     tipo: 'conferencia',
     estado: 'programado',
     capacidad: 0,
-    inscripcionRequerida: false,
-    enlaceInscripcion: ''
+    inscripcionRequerida: false
   });
 
   useEffect(() => {
     if (evento) {
-      const fechaInicioObj = new Date(evento.fechaInicio);
-      const fechaFinObj = new Date(evento.fechaFin);
-      
-      // Formato YYYY-MM-DD para los inputs de fecha
-      const fechaInicio = fechaInicioObj.toISOString().split('T')[0];
-      const fechaFin = fechaFinObj.toISOString().split('T')[0];
-      
-      // Formato HH:MM para los inputs de hora
-      const horaInicio = fechaInicioObj.toTimeString().substring(0, 5);
-      const horaFin = fechaFinObj.toTimeString().substring(0, 5);
-      
-      setFormData({ 
-        ...evento, 
-        fechaInicio, 
-        fechaFin,
-        horaInicio: horaInicio || '08:00',
-        horaFin: horaFin || '18:00',
-        enlaceInscripcion: evento.enlaceInscripcion || ''
-      });
+      const fechaInicio = new Date(evento.fechaInicio).toISOString().split('T')[0];
+      const fechaFin = new Date(evento.fechaFin).toISOString().split('T')[0];
+      setFormData({ ...evento, fechaInicio, fechaFin });
     }
   }, [evento]);
 
@@ -83,41 +63,7 @@ export default function EventoForm({ evento, onSubmit }: EventoFormProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Combinar fecha y hora para crear objetos Date completos
-    const dataToSubmit = {...formData};
-    
-    // Crear fechas combinando fecha y hora
-    if (formData.fechaInicio && formData.horaInicio) {
-      const [year, month, day] = formData.fechaInicio.split('-');
-      const [hours, minutes] = formData.horaInicio.split(':');
-      const fechaInicioCompleta = new Date(
-        parseInt(year), 
-        parseInt(month) - 1, // Los meses en JavaScript son 0-indexados
-        parseInt(day),
-        parseInt(hours),
-        parseInt(minutes)
-      );
-      dataToSubmit.fechaInicio = fechaInicioCompleta.toISOString();
-    }
-    
-    if (formData.fechaFin && formData.horaFin) {
-      const [year, month, day] = formData.fechaFin.split('-');
-      const [hours, minutes] = formData.horaFin.split(':');
-      const fechaFinCompleta = new Date(
-        parseInt(year), 
-        parseInt(month) - 1, // Los meses en JavaScript son 0-indexados
-        parseInt(day),
-        parseInt(hours),
-        parseInt(minutes)
-      );
-      dataToSubmit.fechaFin = fechaFinCompleta.toISOString();
-    }
-    
-    // Crear un nuevo objeto sin las propiedades de hora que no son parte del modelo
-    const { horaInicio, horaFin, ...dataFinal } = dataToSubmit;
-    
-    await onSubmit(dataFinal);
+    await onSubmit(formData);
   };
 
   // Clases CSS mejoradas para inputs
@@ -188,58 +134,36 @@ export default function EventoForm({ evento, onSubmit }: EventoFormProps) {
           />
         </div>
 
-        {/* Fechas y Horas */}
+        {/* Fechas */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label htmlFor="fechaInicio" className={labelClasses}>
               Fecha de Inicio *
             </label>
-            <div className="flex space-x-2">
-              <input
-                type="date"
-                name="fechaInicio"
-                id="fechaInicio"
-                value={formData.fechaInicio}
-                onChange={handleChange}
-                required
-                className={`${inputClasses} flex-grow`}
-              />
-              <input
-                type="time"
-                name="horaInicio"
-                id="horaInicio"
-                value={formData.horaInicio}
-                onChange={handleChange}
-                required
-                className={`${inputClasses} w-1/3`}
-              />
-            </div>
+            <input
+              type="date"
+              name="fechaInicio"
+              id="fechaInicio"
+              value={formData.fechaInicio}
+              onChange={handleChange}
+              required
+              className={inputClasses}
+            />
           </div>
 
           <div>
             <label htmlFor="fechaFin" className={labelClasses}>
               Fecha de Fin *
             </label>
-            <div className="flex space-x-2">
-              <input
-                type="date"
-                name="fechaFin"
-                id="fechaFin"
-                value={formData.fechaFin}
-                onChange={handleChange}
-                required
-                className={`${inputClasses} flex-grow`}
-              />
-              <input
-                type="time"
-                name="horaFin"
-                id="horaFin"
-                value={formData.horaFin}
-                onChange={handleChange}
-                required
-                className={`${inputClasses} w-1/3`}
-              />
-            </div>
+            <input
+              type="date"
+              name="fechaFin"
+              id="fechaFin"
+              value={formData.fechaFin}
+              onChange={handleChange}
+              required
+              className={inputClasses}
+            />
           </div>
         </div>
 
@@ -341,40 +265,18 @@ export default function EventoForm({ evento, onSubmit }: EventoFormProps) {
         </div>
 
         {/* Inscripción requerida */}
-        <div className="space-y-4">
-          <div className="flex items-center space-x-3 p-4 bg-gray-50 rounded-md">
-            <input
-              type="checkbox"
-              name="inscripcionRequerida"
-              id="inscripcionRequerida"
-              checked={formData.inscripcionRequerida}
-              onChange={handleCheckboxChange}
-              className="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
-            />
-            <label htmlFor="inscripcionRequerida" className="text-sm font-medium text-gray-700">
-              Requiere inscripción previa
-            </label>
-          </div>
-          
-          {/* Enlace de inscripción - solo visible si requiere inscripción */}
-          {formData.inscripcionRequerida && (
-            <div className="mt-4 p-4 bg-blue-50 border border-blue-100 rounded-md">
-              <label htmlFor="enlaceInscripcion" className={labelClasses}>
-                Enlace al formulario de inscripción *
-              </label>
-              <input
-                type="url"
-                name="enlaceInscripcion"
-                id="enlaceInscripcion"
-                value={formData.enlaceInscripcion}
-                onChange={handleChange}
-                required={formData.inscripcionRequerida}
-                placeholder="https://ejemplo.com/formulario-inscripcion"
-                className={inputClasses}
-              />
-              <p className="mt-1 text-xs text-gray-500">Proporcione un enlace al formulario donde los participantes pueden inscribirse.</p>
-            </div>
-          )}
+        <div className="flex items-center space-x-3 p-4 bg-gray-50 rounded-md">
+          <input
+            type="checkbox"
+            name="inscripcionRequerida"
+            id="inscripcionRequerida"
+            checked={formData.inscripcionRequerida}
+            onChange={handleCheckboxChange}
+            className="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
+          />
+          <label htmlFor="inscripcionRequerida" className="text-sm font-medium text-gray-700">
+            Requiere inscripción previa
+          </label>
         </div>
 
         {/* Botones */}
@@ -396,4 +298,4 @@ export default function EventoForm({ evento, onSubmit }: EventoFormProps) {
       </form>
     </div>
   );
-} 
+}

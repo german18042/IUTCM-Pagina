@@ -202,8 +202,7 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-secondary mb-2">Correo electrónico</h4>
-                  <p className="text-gray-100 text-lg">info@iutcm.edu.ve</p>
-                  <p className="text-gray-100 text-lg">admisiones@iutcm.edu.ve</p>
+                  <p className="text-gray-100 text-lg">soporte@iutcm.gob</p>
                 </div>
               </div>
               
@@ -213,8 +212,7 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-secondary mb-2">Teléfonos</h4>
-                  <p className="text-gray-100 text-lg">+58 123 456 7890</p>
-                  <p className="text-gray-100 text-lg">+58 123 456 7891</p>
+                  <p className="text-gray-100 text-lg">+58 (424) 783-7583</p>
                 </div>
               </div>
             </div>

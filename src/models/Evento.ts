@@ -46,6 +46,10 @@ const eventoSchema = new mongoose.Schema({
   inscripcionRequerida: {
     type: Boolean,
     default: false
+  },
+  enlaceInscripcion: {
+    type: String,
+    default: ''
   }
 }, {
   timestamps: true

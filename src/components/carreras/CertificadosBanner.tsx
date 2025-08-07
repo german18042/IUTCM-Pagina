@@ -8,7 +8,7 @@ import { FaShieldAlt, FaLock, FaGlobe, FaCheckCircle, FaArrowRight } from 'react
 const features = [
   {
     icon: <FaLock className="w-6 h-6" />,
-    text: "Seguridad Blockchain"
+    text: "Seguridad Cadena de Bloques"
   },
   {
     icon: <FaGlobe className="w-6 h-6" />,
@@ -41,11 +41,11 @@ export const CertificadosBanner = () => {
             <div className="flex items-center gap-4 mb-6">
               <FaShieldAlt className="text-secondary w-12 h-12" />
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-                Certificados Digitales con Blockchain
+                Certificados Digitales con Cadena de Bloques
               </h2>
             </div>
             <p className="text-gray-200 text-xl mb-8 leading-relaxed">
-              Obtén certificados seguros y reconocidos globalmente, respaldados por tecnología Blockchain. Tu éxito profesional avalado por la innovación.
+              Obtén certificados seguros y reconocidos globalmente, respaldados por tecnología Cadena de Bloques. Tu éxito profesional avalado por la innovación.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">

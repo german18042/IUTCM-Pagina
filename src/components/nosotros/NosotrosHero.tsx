@@ -59,14 +59,14 @@ export const NosotrosHero = () => {
             >
               Nuestra Misión y Visión
             </Button>
-            <Button 
+           {/* tton 
               variant="primary" 
               size="lg"
               href="#equipo"
               className="font-bold shadow-lg hover:shadow-xl border-2 border-white"
             >
               Conoce Nuestro Equipo
-            </Button>
+            </Button>*/}
           </div>
         </motion.div>
       </div>

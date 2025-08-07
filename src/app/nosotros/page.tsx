@@ -20,7 +20,7 @@ export default function Nosotros() {
       <HistoriaSection />
       <MisionVisionSection />
       <ObjetivosSection />
-      <EquipoSection />
+     {/*<EquipoSection />*/}
       <Footer />
     </main>
   );

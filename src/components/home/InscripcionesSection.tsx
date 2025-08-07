@@ -44,14 +44,14 @@ export const InscripcionesSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div 
-          className="flex flex-col md:flex-row items-center justify-between gap-12 bg-white/10 rounded-3xl p-12 backdrop-blur-sm border border-white/20"
+          className="bg-white/10 rounded-3xl p-12 backdrop-blur-sm border border-white/20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
           {/* Contenido principal */}
-          <div className="flex-1 text-white text-center md:text-left">
+          <div className="text-white text-center">
             <motion.h2 
               className="text-4xl md:text-6xl font-bold mb-6 leading-tight"
               initial={{ opacity: 0, y: 20 }}
@@ -59,8 +59,8 @@ export const InscripcionesSection = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              ¡Inscripciones <br />
-              <span className="text-secondary">Abiertas!</span>
+              ¡Inscripciones 
+              <span className="text-secondary"> Abiertas!</span>
             </motion.h2>
             <motion.p 
               className="text-xl md:text-2xl mb-8 text-gray-100"
@@ -73,7 +73,7 @@ export const InscripcionesSection = () => {
             </motion.p>
             
             <motion.div
-              className="grid md:grid-cols-2 gap-6 mb-8"
+              className="grid md:grid-cols-3 gap-4 mb-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -103,35 +103,66 @@ export const InscripcionesSection = () => {
                 </svg>
                 <span className="text-lg">Laboratorios Modernos</span>
               </div>
+              <div className="flex items-center gap-3 bg-white/10 p-4 rounded-xl">
+                <svg className="w-8 h-8 text-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="text-lg">Creditos Disponibles</span>
+              </div>
+              <div className="flex items-center gap-3 bg-white/10 p-4 rounded-xl">
+                <svg className="w-8 h-8 text-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="text-lg">Certificación Internacional</span>
+              </div>
+              <div className="flex items-center gap-3 bg-white/10 p-4 rounded-xl">
+                <svg className="w-8 h-8 text-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="text-lg">Bolsa de Trabajo</span>
+              </div>
+              <div className="flex items-center gap-3 bg-white/10 p-4 rounded-xl">
+                <svg className="w-8 h-8 text-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="text-lg">Biblioteca Digital</span>
+              </div>
+              <div className="flex items-center gap-3 bg-white/10 p-4 rounded-xl">
+                <svg className="w-8 h-8 text-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="text-lg">Apoyo Estudiantil</span>
+              </div>
+            </motion.div>
+
+            {/* Botón de acción movido abajo */}
+            <motion.div 
+              className="flex justify-center"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+            >
+              <Link 
+                href="https://api.whatsapp.com/send/?phone=584247837583&text&type=phone_number&app_absent=0" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-secondary rounded-xl overflow-hidden transition-all duration-300 ease-out hover:scale-105"
+              >
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-secondary via-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                <span className="relative flex items-center gap-2">
+                  Inscríbete Ahora
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+              </Link>
             </motion.div>
           </div>
-
-          {/* Botón de acción */}
-          <motion.div 
-            className="md:w-auto"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
-          >
-            <Link 
-              href="/admisiones" 
-              className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-secondary rounded-xl overflow-hidden transition-all duration-300 ease-out hover:scale-105"
-            >
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-secondary via-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-              <span className="relative flex items-center gap-2">
-                Inscríbete Ahora
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </span>
-            </Link>
-          </motion.div>
         </motion.div>
       </div>
     </section>
   );
 }; 
- 
  
  

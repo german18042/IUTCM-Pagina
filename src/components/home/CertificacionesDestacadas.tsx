@@ -15,10 +15,10 @@ const certificaciones = [
   },
   {
     id: 2,
-    titulo: 'Manipulación de Alimentos',
-    descripcion: 'Obtén tu certificado en manipulación segura de alimentos y buenas prácticas sanitarias.',
-    imagen: 'https://images.unsplash.com/photo-1466637574441-749b8f19452f?q=80&w=1480&auto=format&fit=crop'
-  },
+    titulo: 'Certificado de Reparación de Aires Acondicionados Split',
+    descripcion: `Durante el curso, los estudiantes aprenderán los fundamentos de los sistemas de aire acondicionado.`,
+    imagen: 'https://i.imgur.com/09RHNsT.jpeg',
+    },
   {
     id: 3,
     titulo: 'Atención al Cliente',

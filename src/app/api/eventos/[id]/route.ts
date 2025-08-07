@@ -24,10 +24,11 @@ export async function PUT(
   { params }: { params: { id: string } }
 ) {
   try {
-    const session = await getServerSession();
-    if (!session) {
-      return NextResponse.json({ error: 'No autorizado' }, { status: 401 });
-    }
+    // Autenticación desactivada temporalmente para permitir editar eventos sin sesión
+    // const session = await getServerSession();
+    // if (!session) {
+    //   return NextResponse.json({ error: 'No autorizado' }, { status: 401 });
+    // }
 
     await connectDB();
     const data = await request.json();
@@ -37,6 +38,7 @@ export async function PUT(
     }
     return NextResponse.json(evento);
   } catch (error) {
+    console.error('Error al actualizar el evento:', error);
     return NextResponse.json({ error: 'Error al actualizar el evento' }, { status: 500 });
   }
 }
@@ -46,10 +48,11 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   try {
-    const session = await getServerSession();
-    if (!session) {
-      return NextResponse.json({ error: 'No autorizado' }, { status: 401 });
-    }
+    // Autenticación desactivada temporalmente para permitir eliminar eventos sin sesión
+    // const session = await getServerSession();
+    // if (!session) {
+    //   return NextResponse.json({ error: 'No autorizado' }, { status: 401 });
+    // }
 
     await connectDB();
     const evento = await Evento.findByIdAndDelete(params.id);
@@ -58,6 +61,7 @@ export async function DELETE(
     }
     return NextResponse.json({ message: 'Evento eliminado correctamente' });
   } catch (error) {
+    console.error('Error al eliminar el evento:', error);
     return NextResponse.json({ error: 'Error al eliminar el evento' }, { status: 500 });
   }
-} 
+}

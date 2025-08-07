@@ -61,9 +61,9 @@ export const Footer = () => {
           {/* Información de contacto */}
           <div>
             <h3 className="text-xl font-bold mb-4">Contacto</h3>
-            <p className="mb-2">Dirección: Av. Principal, Ciudad</p>
-            <p className="mb-2">Teléfono: (123) 456-7890</p>
-            <p className="mb-2">Email: info@iutcm.edu</p>
+            <p className="mb-2">Teléfono: +58 (424) 783-7583</p>
+            <p className="mb-2">Email: soporte@iutcm.gob</p>
+            <p className="mb-2">Whatsapp: +58 (424) 783-7583</p>
           </div>
 
           {/* Enlaces rápidos */}

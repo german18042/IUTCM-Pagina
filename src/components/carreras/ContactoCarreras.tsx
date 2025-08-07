@@ -245,7 +245,7 @@ export const ContactoCarreras = () => {
                   </div>
                   <div>
                     <h4 className="text-lg font-semibold text-secondary mb-2">Correo electrónico</h4>
-                    <p className="text-gray-100 text-lg">info@iutcm.edu.ve</p>
+                    <p className="text-gray-100 text-lg">soporte@iutcm.gob</p>
                     <p className="text-gray-100 text-lg">admisiones@iutcm.edu.ve</p>
                   </div>
                 </div>
@@ -256,21 +256,11 @@ export const ContactoCarreras = () => {
                   </div>
                   <div>
                     <h4 className="text-lg font-semibold text-secondary mb-2">Teléfonos</h4>
-                    <p className="text-gray-100 text-lg">+58 (212) 555-1234</p>
-                    <p className="text-gray-100 text-lg">+58 (212) 555-5678</p>
+                    <p className="text-gray-100 text-lg">+58 (424) 555-1234</p>
                   </div>
                 </div>
                 
-                <div className="flex items-center">
-                  <div className="bg-white/20 backdrop-blur-sm p-4 rounded-full text-white mr-5">
-                    <FaCalendarAlt size={24} />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-secondary mb-2">Horarios</h4>
-                    <p className="text-gray-100 text-lg">Martes y Jueves: 9:00 AM - 12:00 PM</p>
-                    <p className="text-gray-100 text-lg">Sábados: 10:00 AM - 1:00 PM</p>
-                  </div>
-                </div>
+               
               </div>
             </motion.div>
           </div>

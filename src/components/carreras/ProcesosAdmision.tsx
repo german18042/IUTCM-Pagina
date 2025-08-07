@@ -109,7 +109,9 @@ export const ProcesosAdmision = () => {
               <Button 
                 variant="primary" 
                 size="lg"
-                href="/admisiones"
+                href="https://api.whatsapp.com/send/?phone=584247837583&text&type=phone_number&app_absent=0"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Solicitar Admisión
               </Button>

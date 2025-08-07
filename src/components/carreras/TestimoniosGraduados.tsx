@@ -8,7 +8,7 @@ import { PlaceholderImage } from '../../components/home/PlaceholderImage';
 const testimonios = [
   {
     id: 1,
-    nombre: "Carlos Rodríguez",
+    nombre: "Luis Castellanos",
     carrera: "T.S.U. en Informática",
     año: "2023",
     empresa: "TechSolutions Inc.",
@@ -17,7 +17,7 @@ const testimonios = [
   },
   {
     id: 2,
-    nombre: "María González",
+    nombre: "Natalia Vargas",
     carrera: "T.S.U. en Administración de Empresas",
     año: "2022",
     empresa: "Grupo Financiero Nacional",
@@ -35,7 +35,7 @@ const testimonios = [
   },
   {
     id: 4,
-    nombre: "Laura Pérez",
+    nombre: "Laura Lopez",
     carrera: "Dohmi Culinary Institute",
     año: "2022",
     empresa: "Restaurante Fusión",
@@ -103,29 +103,29 @@ export const TestimoniosGraduados = () => {
                 <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-secondary flex-shrink-0">
                   {testimonios[currentIndex].id === 1 && (
                     <img 
-                      src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
-                      alt="Carlos Rodríguez" 
+                      src="https://i.imgur.com/Gjaiu9F.png" 
+                      alt="Luis Castellanos" 
                       className="w-full h-full object-cover"
                     />
                   )}
                   {testimonios[currentIndex].id === 2 && (
                     <img 
-                      src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" 
-                      alt="María González" 
+                      src="https://i.imgur.com/OPzwmDx.png" 
+                      alt="Natalia Vargas" 
                       className="w-full h-full object-cover"
                     />
                   )}
                   {testimonios[currentIndex].id === 3 && (
                     <img 
-                      src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                      src="https://i.imgur.com/KhJRl9i.png" 
                       alt="Alejandro Martínez" 
                       className="w-full h-full object-cover"
                     />
                   )}
                   {testimonios[currentIndex].id === 4 && (
                     <img 
-                      src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
-                      alt="Laura Pérez" 
+                      src="https://i.imgur.com/MEA8lJg.png" 
+                      alt="Laura Lopez" 
                       className="w-full h-full object-cover"
                     />
                   )}

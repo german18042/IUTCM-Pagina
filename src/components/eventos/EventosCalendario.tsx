@@ -1,39 +1,47 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaCalendarAlt, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-// Datos de ejemplo para eventos por fecha
-const eventosPorFecha = {
-  "2025-07-20": [
-    { id: 1, titulo: "Feria de Empleo y Pasantías", hora: "9:00 AM" }
-  ],
-  "2025-07-25": [
-    { id: 2, titulo: "Jornada de Actualización Tecnológica", hora: "10:00 AM" }
-  ],
-  "2025-07-30": [
-    { id: 3, titulo: "Conferencia: Innovación en Ingeniería", hora: "3:00 PM" }
-  ],
-  "2025-08-05": [
-    { id: 4, titulo: "Taller de Emprendimiento", hora: "1:00 PM" }
-  ],
-  "2025-08-10": [
-    { id: 5, titulo: "Inicio Semana de la Ciencia", hora: "9:00 AM" }
-  ],
-  "2025-08-14": [
-    { id: 6, titulo: "Clausura Semana de la Ciencia", hora: "4:00 PM" }
-  ],
-  "2025-08-20": [
-    { id: 7, titulo: "Inicio Hackathon IUTCM", hora: "8:00 AM" }
-  ],
-  "2025-08-21": [
-    { id: 8, titulo: "Fin Hackathon IUTCM", hora: "8:00 AM" }
-  ]
-};
+interface Evento {
+  _id: string;
+  titulo: string;
+  descripcion: string;
+  imagen: string;
+  fechaInicio: string;
+  fechaFin: string;
+  lugar: string;
+  organizador: string;
+  tipo: string;
+  estado: string;
+  capacidad: number;
+  inscripcionRequerida: boolean;
+  enlaceInscripcion?: string;
+}
+
+interface EventoCalendario {
+  id: string;
+  titulo: string;
+  hora: string;
+  fecha: number;
+  fechaCompleta: string;
+}
+
+interface EventosPorFecha {
+  [key: string]: {
+    id: string;
+    titulo: string;
+    hora: string;
+  }[];
+}
 
 export const EventosCalendario = () => {
-  const [currentMonth, setCurrentMonth] = useState(6); // Julio (0-indexed)
-  const [currentYear, setCurrentYear] = useState(2025);
+  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+  const [eventos, setEventos] = useState<Evento[]>([]);
+  const [eventosPorFecha, setEventosPorFecha] = useState<EventosPorFecha>({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   
   // Nombres de los meses
   const meses = [
@@ -107,17 +115,79 @@ export const EventosCalendario = () => {
     return days;
   };
   
+  // Cargar eventos desde la API
+  useEffect(() => {
+    const fetchEventos = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch('/api/eventos');
+        
+        if (!response.ok) {
+          throw new Error('Error al cargar eventos');
+        }
+        
+        const data: Evento[] = await response.json();
+        setEventos(data);
+        
+        // Organizar eventos por fecha
+        const porFecha: EventosPorFecha = {};
+        
+        data.forEach(evento => {
+          // Convertir fechas a objetos Date
+          const fechaInicio = new Date(evento.fechaInicio);
+          const fechaFin = new Date(evento.fechaFin);
+          
+          // Crear un evento para cada día entre fechaInicio y fechaFin
+          const currentDate = new Date(fechaInicio);
+          
+          while (currentDate <= fechaFin) {
+            const dateStr = currentDate.toISOString().split('T')[0];
+            
+            if (!porFecha[dateStr]) {
+              porFecha[dateStr] = [];
+            }
+            
+            porFecha[dateStr].push({
+              id: evento._id,
+              titulo: evento.titulo,
+              hora: new Date(evento.fechaInicio).toLocaleTimeString('es-ES', {
+                hour: '2-digit',
+                minute: '2-digit'
+              })
+            });
+            
+            // Avanzar al siguiente día
+            currentDate.setDate(currentDate.getDate() + 1);
+          }
+        });
+        
+        setEventosPorFecha(porFecha);
+      } catch (err) {
+        console.error('Error al cargar eventos:', err);
+        setError('No se pudieron cargar los eventos');
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchEventos();
+  }, []);
+  
   // Eventos del mes actual
   const getEventosDelMes = () => {
-    const eventos = [];
+    const eventosDelMes: EventoCalendario[] = [];
     
     for (const dateStr in eventosPorFecha) {
-      const date = new Date(dateStr);
+      // Crear la fecha correctamente para evitar problemas de zona horaria
+      // Formato de dateStr es YYYY-MM-DD
+      const [year, month, day] = dateStr.split('-').map(Number);
+      const date = new Date(year, month - 1, day); // month es 0-indexed en JavaScript
+      
       if (date.getMonth() === currentMonth && date.getFullYear() === currentYear) {
         eventosPorFecha[dateStr].forEach(evento => {
-          eventos.push({
+          eventosDelMes.push({
             ...evento,
-            fecha: date.getDate(),
+            fecha: day, // Usar el día directamente del string para evitar desfases
             fechaCompleta: dateStr
           });
         });
@@ -125,18 +195,29 @@ export const EventosCalendario = () => {
     }
     
     // Ordenar por fecha
-    return eventos.sort((a, b) => a.fecha - b.fecha);
+    return eventosDelMes.sort((a, b) => a.fecha - b.fecha);
   };
   
   const eventosDelMes = getEventosDelMes();
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold text-gray-800 flex items-center">
-          <FaCalendarAlt className="mr-2 text-secondary" />
-          Calendario
-        </h2>
+      {loading ? (
+        <div className="py-8 text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+          <p className="text-gray-600">Cargando eventos...</p>
+        </div>
+      ) : error ? (
+        <div className="py-8 text-center">
+          <p className="text-red-500">{error}</p>
+        </div>
+      ) : (
+        <>
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold text-gray-800 flex items-center">
+              <FaCalendarAlt className="mr-2 text-secondary" />
+              Calendario
+            </h2>
         
         <div className="flex items-center space-x-4">
           <button 
@@ -147,7 +228,7 @@ export const EventosCalendario = () => {
             <FaChevronLeft />
           </button>
           
-          <span className="font-medium">
+          <span className="font-medium text-primary text-lg">
             {meses[currentMonth]} {currentYear}
           </span>
           
@@ -209,6 +290,8 @@ export const EventosCalendario = () => {
           </p>
         )}
       </div>
+        </>
+      )}
     </div>
   );
 };

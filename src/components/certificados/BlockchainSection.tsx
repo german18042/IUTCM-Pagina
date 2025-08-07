@@ -3,9 +3,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-export const BlockchainSection = () => {
+export const BlockchainSection = () => { // Nombre del componente se mantiene igual para evitar errores de importación
   return (
-    <section id="blockchain" className="py-16 bg-white">
+    <section id="cadena-de-bloques" className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -15,7 +15,7 @@ export const BlockchainSection = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
-              ¿Qué es la Tecnología Blockchain?
+              ¿Qué es la Tecnología de Cadena de Bloques?
             </h2>
             <p className="text-gray-600 mb-6 leading-relaxed">
               Permite el registro y verificación de transacciones de manera transparente y sin intermediarios. 
@@ -67,8 +67,8 @@ export const BlockchainSection = () => {
           >
             <div className="rounded-lg overflow-hidden shadow-xl">
               <img
-                src="https://i.imgur.com/KPTWKfR.jpeg"
-                alt="Tecnología Blockchain"
+                src="https://i.imgur.com/6BUsKAX.jpeg"
+                alt="Tecnología de Cadena de Bloques"
                 className="w-full h-full object-cover"
                 loading="lazy"
                 onError={(e) => {

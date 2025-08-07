@@ -17,29 +17,6 @@ Durante el curso, los participantes recibirán una formación integral en los pr
     imagen: 'https://i.imgur.com/HCrQDF1.png',
   },
   {
-    titulo: 'Certificación de Pescadería',
-    descripcion: `El curso de Certificación de Pescadería es un programa completo diseñado para aquellos interesados en desarrollar habilidades especializadas en el manejo de pescados y mariscos frescos. Durante este curso, los participantes aprenderán los conocimientos esenciales y las técnicas prácticas necesarias para sobresalir en el emocionante campo de la pescadería.
-
-A lo largo del programa, los estudiantes explorarán una amplia gama de temas relacionados con los productos del mar. Esto incluirá el conocimiento de diferentes tipos de pescados y mariscos, tanto de agua dulce como de agua salada. Los participantes aprenderán sobre las características de cada especie, su calidad, técnicas de almacenamiento adecuadas y las formas más comunes de preparación culinaria.`,
-    imagen: 'https://i.imgur.com/OhEZhIe.jpeg',
-  },
-  {
-    titulo: 'Certificación de Carnicería',
-    descripcion: `El curso de Certificación de Carnicería es una oportunidad única para aquellos interesados en adquirir habilidades especializadas en el arte de la carnicería. Durante el curso, los participantes aprenderán los conocimientos esenciales y las técnicas prácticas necesarias para sobresalir en este oficio.
-
-El programa de certificación abarcará una amplia gama de temas, incluyendo el conocimiento de los diferentes tipos de carne, desde res y cerdo hasta aves y cordero. Los estudiantes aprenderán sobre las características de cada tipo de carne, su calidad, corte y usos culinarios adecuados.`,
-    imagen: 'https://images.pexels.com/photos/1927377/pexels-photo-1927377.jpeg',
-  },
-  {
-    titulo: 'Programa de Higiene y Manipulación de Alimentos',
-    descripcion: `Es un programa diseñado para proporcionar a los participantes los conocimientos y las habilidades necesarias para garantizar la seguridad e inocuidad de los alimentos en entornos de preparación y servicio de alimentos.
-
-Durante el programa, los estudiantes aprenderán sobre los principios fundamentales de la higiene alimentaria y la importancia de mantener altos estándares de seguridad en la manipulación de alimentos. Se les enseñará sobre los peligros alimentarios, como la contaminación cruzada, el crecimiento bacteriano y las intoxicaciones alimentarias, y cómo prevenirlos.
-
-Este abordará temas como la higiene personal, incluyendo la importancia del lavado de manos adecuado y la vestimenta apropiada en la manipulación de alimentos. Los participantes también aprenderán sobre la limpieza y desinfección de equipos y superficies, así como las prácticas de almacenamiento seguro de alimentos.`,
-    imagen: 'https://i.imgur.com/pIwID17.jpeg',
-  },
-  {
     titulo: 'Atención al cliente',
     descripcion: `Durante el curso, los estudiantes aprenderán los fundamentos de la atención al cliente, incluyendo la importancia de brindar un trato amable, cortés y respetuoso, así como la capacidad de escuchar activamente y comprender las necesidades y preocupaciones de los clientes.
 
@@ -103,13 +80,6 @@ Los participantes adquirirán habilidades prácticas en la identificación y sol
 
 Los participantes adquirirán habilidades prácticas en la instalación y actualización de hardware de PC, como la instalación de tarjetas de expansión, la conexión de cables y la configuración de dispositivos periféricos. Aprenderán a identificar y solucionar problemas comunes relacionados con el hardware, como problemas de inicio, errores de memoria y fallas en los componentes.`,
     imagen: 'https://i.imgur.com/Os71j1o.jpeg',
-  },
-  {
-    titulo: 'Certificación de elaboración y venta de charcutería',
-    descripcion: `El curso de Certificación de Elaboración y Venta de Charcutería es un programa especializado diseñado para aquellos interesados en aprender las técnicas y habilidades necesarias para producir y vender una amplia variedad de productos de charcutería artesanal.
-
-Además de la elaboración de los productos, el curso también abordará aspectos clave de la venta y comercialización de la charcutería. Los participantes aprenderán sobre el etiquetado adecuado, el empaquetado atractivo y la presentación de los productos para atraer a los clientes. También se les enseñará a brindar un servicio al cliente de calidad, asesorando a los clientes sobre los diferentes productos de charcutería, recomendando combinaciones y ofreciendo información sobre los procesos de elaboración.`,
-    imagen: 'https://i.imgur.com/x4J9EkR.png',
   },
 ];
 

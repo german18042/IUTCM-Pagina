@@ -7,7 +7,7 @@ import { FaGraduationCap, FaUsers, FaBook, FaGlobe } from 'react-icons/fa';
 import { PlaceholderImage } from './PlaceholderImage';
 
 const stats = [
-  { id: 1, icon: <FaGraduationCap size={24} />, value: '40+', label: 'Años de Experiencia' },
+  { id: 1, icon: <FaGraduationCap size={24} />, value: '30+', label: 'Años de Experiencia' },
   { id: 2, icon: <FaUsers size={24} />, value: '3,000+', label: 'Estudiantes Activos' },
   { id: 3, icon: <FaBook size={24} />, value: '5+', label: 'Programas Académicos' },
   { id: 4, icon: <FaGlobe size={24} />, value: '15+', label: 'Convenios Internacionales' },

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { FaBars, FaTimes, FaNewspaper } from 'react-icons/fa';
+import { FaBars, FaTimes, FaNewspaper, FaGraduationCap } from 'react-icons/fa';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
@@ -13,6 +13,7 @@ const navItems = [
   { name: 'Carreras', path: '/carreras' },
   { name: 'Certificaciones', path: '/certificaciones' },
   { name: 'Noticias', path: '/noticias' },
+  { name: 'Eventos', path: '/eventos' },
 ];
 
 export const Navbar = () => {
@@ -95,6 +96,19 @@ export const Navbar = () => {
               </Link>
             </motion.div>
           ))}
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+          >
+            <a 
+              href="https://www.iutcm.online/users/sign_in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center bg-secondary text-primary px-3 py-1.5 rounded-md text-sm lg:text-base font-medium hover:bg-accent transition-colors"
+            >
+              <FaGraduationCap className="mr-1" /> Campus Online
+            </a>
+          </motion.div>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -128,6 +142,15 @@ export const Navbar = () => {
                   {item.name}
                 </Link>
               ))}
+              <a
+                href="https://www.iutcm.online/users/sign_in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center bg-secondary text-primary py-3 px-4 rounded-md text-lg font-medium hover:bg-accent transition-colors mt-2"
+                onClick={() => setIsOpen(false)}
+              >
+                <FaGraduationCap className="mr-2" /> Campus Online
+              </a>
             </div>
           </motion.div>
         )}
