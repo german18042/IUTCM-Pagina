@@ -62,7 +62,7 @@ export const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">Contacto</h3>
             <p className="mb-2">Teléfono: +58 (424) 783-7583</p>
-            <p className="mb-2">Email: soporte@iutcm.gob</p>
+            <p className="mb-2">Email: soporte@iutcm.edu.ve</p>
             <p className="mb-2">Whatsapp: +58 (424) 783-7583</p>
           </div>
 
