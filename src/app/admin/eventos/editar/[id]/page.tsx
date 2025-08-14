@@ -1,27 +1,32 @@
 'use client';
 
+import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import EventoForm from '@/components/admin/eventos/EventoForm';
-import { useRouter } from 'next/navigation';
 
-interface Props {
-  params: {
-    id: string;
-  };
-}
-
-export default function EditarEventoPage({ params }: Props) {
+export default function EditarEventoPage() {
   const router = useRouter();
+  const params = useParams(); // <-- params ahora es una Promise
   const [evento, setEvento] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [id, setId] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchEvento();
-  }, [params.id]);
+    const getParams = async () => {
+      const resolvedParams = await params;
+      const eventId = resolvedParams.id as string;
+      setId(eventId);
+      if (eventId) {
+        await fetchEvento(eventId);
+      }
+    };
+    
+    getParams();
+  }, [params]);
 
-  const fetchEvento = async () => {
+  const fetchEvento = async (eventId: string) => {
     try {
-      const res = await fetch(`/api/eventos/${params.id}`);
+      const res = await fetch(`/api/eventos/${eventId}`);
       if (!res.ok) throw new Error('Error al cargar el evento');
       const data = await res.json();
       setEvento(data);
@@ -33,8 +38,10 @@ export default function EditarEventoPage({ params }: Props) {
   };
 
   const handleSubmit = async (data: any) => {
+    if (!id) return;
+    
     try {
-      const response = await fetch(`/api/eventos/${params.id}`, {
+      const response = await fetch(`/api/eventos/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -52,9 +59,7 @@ export default function EditarEventoPage({ params }: Props) {
     }
   };
 
-  if (loading) {
-    return <div>Cargando...</div>;
-  }
+  if (loading || !id) return <div>Cargando...</div>;
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -62,4 +67,4 @@ export default function EditarEventoPage({ params }: Props) {
       {evento && <EventoForm evento={evento} onSubmit={handleSubmit} />}
     </div>
   );
-} 
+}

@@ -5,11 +5,12 @@ import { connectDB } from '@/lib/mongodb';
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const resolvedParams = await params;
     await connectDB();
-    const noticia = await Noticia.findById(params.id);
+    const noticia = await Noticia.findById(resolvedParams.id);
     
     if (!noticia) {
       return NextResponse.json(
@@ -30,14 +31,15 @@ export async function GET(
 
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const body = await request.json();
+    const resolvedParams = await params;
     await connectDB();
 
     const noticia = await Noticia.findByIdAndUpdate(
-      params.id,
+      resolvedParams.id,
       { $set: body },
       { new: true, runValidators: true }
     );
@@ -61,11 +63,12 @@ export async function PUT(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const resolvedParams = await params;
     await connectDB();
-    const noticia = await Noticia.findByIdAndDelete(params.id);
+    const noticia = await Noticia.findByIdAndDelete(resolvedParams.id);
 
     if (!noticia) {
       return NextResponse.json(
@@ -82,4 +85,4 @@ export async function DELETE(
       { status: 500 }
     );
   }
-} 
+}

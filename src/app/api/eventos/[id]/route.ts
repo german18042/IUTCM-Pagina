@@ -5,11 +5,12 @@ import { connectDB } from '@/lib/mongodb';
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const resolvedParams = await params;
     await connectDB();
-    const evento = await Evento.findById(params.id);
+    const evento = await Evento.findById(resolvedParams.id);
     if (!evento) {
       return NextResponse.json({ error: 'Evento no encontrado' }, { status: 404 });
     }
@@ -21,7 +22,7 @@ export async function GET(
 
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Autenticación desactivada temporalmente para permitir editar eventos sin sesión
@@ -30,9 +31,10 @@ export async function PUT(
     //   return NextResponse.json({ error: 'No autorizado' }, { status: 401 });
     // }
 
+    const resolvedParams = await params;
     await connectDB();
     const data = await request.json();
-    const evento = await Evento.findByIdAndUpdate(params.id, data, { new: true });
+    const evento = await Evento.findByIdAndUpdate(resolvedParams.id, data, { new: true });
     if (!evento) {
       return NextResponse.json({ error: 'Evento no encontrado' }, { status: 404 });
     }
@@ -45,7 +47,7 @@ export async function PUT(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Autenticación desactivada temporalmente para permitir eliminar eventos sin sesión
@@ -54,8 +56,9 @@ export async function DELETE(
     //   return NextResponse.json({ error: 'No autorizado' }, { status: 401 });
     // }
 
+    const resolvedParams = await params;
     await connectDB();
-    const evento = await Evento.findByIdAndDelete(params.id);
+    const evento = await Evento.findByIdAndDelete(resolvedParams.id);
     if (!evento) {
       return NextResponse.json({ error: 'Evento no encontrado' }, { status: 404 });
     }

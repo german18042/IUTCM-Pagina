@@ -5,23 +5,31 @@ import NoticiaForm from '@/components/admin/noticias/NoticiaForm';
 import { useRouter } from 'next/navigation';
 
 interface Props {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default function EditarNoticiaPage({ params }: Props) {
   const router = useRouter();
   const [noticia, setNoticia] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [id, setId] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchNoticia();
-  }, [params.id]);
+    const getParams = async () => {
+      const resolvedParams = await params;
+      const noticiaId = resolvedParams.id;
+      setId(noticiaId);
+      await fetchNoticia(noticiaId);
+    };
+    
+    getParams();
+  }, [params]);
 
-  const fetchNoticia = async () => {
+  const fetchNoticia = async (noticiaId: string) => {
     try {
-      const res = await fetch(`/api/noticias/${params.id}`);
+      const res = await fetch(`/api/noticias/${noticiaId}`);
       if (!res.ok) throw new Error('Error al cargar la noticia');
       const data = await res.json();
       setNoticia(data);
@@ -33,8 +41,10 @@ export default function EditarNoticiaPage({ params }: Props) {
   };
 
   const handleSubmit = async (data: any) => {
+    if (!id) return;
+    
     try {
-      const response = await fetch(`/api/noticias/${params.id}`, {
+      const response = await fetch(`/api/noticias/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -52,7 +62,7 @@ export default function EditarNoticiaPage({ params }: Props) {
     }
   };
 
-  if (loading) {
+  if (loading || !id) {
     return <div>Cargando...</div>;
   }
 
@@ -62,4 +72,4 @@ export default function EditarNoticiaPage({ params }: Props) {
       {noticia && <NoticiaForm noticia={noticia} onSubmit={handleSubmit} />}
     </div>
   );
-} 
+}
